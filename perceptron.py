@@ -1,5 +1,4 @@
 import numpy as np
-import torch
 
 class Perceptron:
     """Class implementing a simple perceptron for binary classification
