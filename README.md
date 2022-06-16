@@ -1,1 +1,1 @@
-# nn-curve
+# nnets
