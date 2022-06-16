@@ -3,6 +3,7 @@ import torch
 
 class Perceptron:
     """Class implementing a simple perceptron for binary classification
+    using the Perceptron Learning Algorithm.
     """
 
     def __init__(self, epochs=480, learning_rate=0.01, seed=42):
@@ -22,7 +23,7 @@ class Perceptron:
         return None
 
     def fit(self, X, y):
-        """Fits the data to the perceptron model.
+        """Fits the data to the model that applies the "Perceptron Learning Algorithm".
 
         Args:
             X (array-like, shape = [num_datapoints, num_features]): Feature matrix.
@@ -31,7 +32,17 @@ class Perceptron:
         Returns:
             self: An object
         """
-        return None
+        np.random.seed(self.seed)
+        self.W = np.random.rand(X.shape[1])
+        self.b = np.float_(0.0)
+
+        for iter in range(self.epochs):
+            for x_iter, label in zip(X, y):
+                variant = self.learning_rate * (label - self.predict(x_iter))
+                self.W += variant * x_iter
+                self.b += variant
+        
+        return self
 
     def perceptronInput(self, X):
         """Calculates the value of the net input to be given to the perceptron for prediction.
