@@ -19,7 +19,6 @@ class Perceptron:
         self.epochs = epochs
         self.learning_rate = learning_rate
         self.seed = seed
-        return None
 
     def fit(self, X, y):
         """Fits the data to the model that applies the "Perceptron Learning Algorithm".
